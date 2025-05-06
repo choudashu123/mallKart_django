@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-bb$sz4^j)h*u++c=zspcso7&f6616&fw*b$q6e*auc^%x)b_=7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mallkart-django.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -144,10 +144,11 @@ MESSAGE_TAGS = {
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+import os
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_HOST_USER='ashubgp10@gmail.com'
-EMAIL_HOST_PASSWORD='hviw wwbf yjxj xdmw'
-EMAIL_USE_TLS=True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
